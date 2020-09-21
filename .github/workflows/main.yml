@@ -4,17 +4,28 @@ jobs:
     build:
         runs-on: self-hosted
         steps:
-            - uses: actions/checkout@v2
+            - name: Checkout code.
+              uses: actions/checkout@v2
             
             - name: Zip python script into package
               run: |
                 echo "Zipping package..."
                 Compress-Archive -Update lambda_function.py lambda.zip
+            
+            - name: Save zip for next job.
+              uses: actions/upload-artifact@v2
+              with: 
+                name: lambda
+                path: lambda.zip
+            
     deploy:
         runs-on: self-hosted
         needs: build
         steps:
-            - uses: actions/checkout@v2
+            - name: Retrieve output zip from build job
+              uses: actions/download-artifact@v2
+              with:
+                name: lambda            
             
             - name: Push zip to aws to replace code
               run: |
