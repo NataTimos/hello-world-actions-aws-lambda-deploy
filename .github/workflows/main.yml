@@ -4,9 +4,9 @@ jobs:
     build:
         runs-on: self-hosted
         steps:
-            -uses: actions/checkout@v2
-            -name: Zip python script into package.
-            -run: |
+            - uses: actions/checkout@v2
+            - name: Zip python script into package.
+            run: |
                 echo "Zipping package..."
                 Compress-Archive -Update lambda_function.py lambda.zip
     deploy:
@@ -14,7 +14,7 @@ jobs:
         steps:
             - needs: build
             - uses: actions/checkout@v2
-            - name: Push zip to aws to replace code
-            - run: |
+            - name: Push zip to aws to replace code.
+            run: |
                 echo "Pushing code to AWS..."
                 aws lambda update-function-code --function-name lambdaTest --zip-file fileb://lambda.zip --publish
