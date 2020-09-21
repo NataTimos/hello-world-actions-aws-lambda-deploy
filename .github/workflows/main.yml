@@ -12,7 +12,7 @@ jobs:
                 echo "Zipping package..."
                 Compress-Archive -Update lambda_function.py lambda.zip
             
-            - name: Save zip for next job.
+            - name: Save output for next job.
               uses: actions/upload-artifact@v2
               with: 
                 name: lambda
