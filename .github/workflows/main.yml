@@ -1,8 +1,12 @@
-name: lambda-deploy
-on: push
+name: HW-GH-Actions
+on:
+  push:
+    branches: 
+      - master
+      
 jobs:
     build:
-        runs-on: self-hosted
+        runs-on: ubuntu-latest
         steps:
             - name: Checkout code.
               uses: actions/checkout@v2
@@ -19,7 +23,7 @@ jobs:
                 path: lambda.zip
             
     deploy:
-        runs-on: self-hosted
+        runs-on: ubuntu-latest
         needs: build
         steps:
             - name: Retrieve output zip from build job
