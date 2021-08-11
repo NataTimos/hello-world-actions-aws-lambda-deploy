@@ -14,7 +14,7 @@ jobs:
             - name: Zip python script into package
               run: |
                 echo "Zipping package..."
-                zip -r lambda.zip
+                zip -r lambda.zip lambda_function.py
             
             - name: Save output for next job.
               uses: actions/upload-artifact@v2
