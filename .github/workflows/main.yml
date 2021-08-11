@@ -41,4 +41,4 @@ jobs:
             - name: Push zip to aws to replace code
               run: |
                 echo "Pushing code to AWS..."
-                aws lambda update-function-code --function-name lambdaTest --zip-file fileb://lambda.zip --publish
+                aws lambda update-function-code --function-name hello-world-python --zip-file fileb://lambda.zip --publish
