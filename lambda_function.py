@@ -18,8 +18,8 @@ def circle():
       ID - 5, world
     When iteration reach limit (Ex.: ID: 14), circle begins again
     """
-    key = 'key61gNeBIc9mp8RC' #my own api_key
-    url = f'https://api.airtable.com/v0/appS74xV8aAeYBO5v/MainTable?fields%5B%5D=ID&fields%5B%5D=title&sort%5B0%5D%5Bfield%5D=ID&api_key={key}'
+   key = 'keyL2Fz58E72N4JEa' #my own api_key
+    url = f'https://api.airtable.com/v0/appjzQ0kWbadhXzq4/MainTable?fields%5B%5D=ID&fields%5B%5D=title&sort%5B0%5D%5Bfield%5D=ID&api_key={key}'
     main_lst = []
     req = requests.get(url).json()['records']
     l = len(req) - 1 # for iteration
