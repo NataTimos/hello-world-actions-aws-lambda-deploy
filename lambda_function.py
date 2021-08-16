@@ -29,10 +29,12 @@ def lambda_handler(event, context):
         # print(time.time())
         srez = table_list[int(time.time())%table_list_length:]+table_list[:int(time.time())%table_list_length]
         # print(srez)
+        time.sleep(1)
+        
         return  srez[:3]
 
 
-
+# 
 # temp=[]
 
 # def lambda_handler(event, context):
@@ -48,5 +50,3 @@ def lambda_handler(event, context):
 #             # print(table_list[0:3])
  
 #             return table_list[0:3]
- 
- 
